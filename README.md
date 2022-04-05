@@ -30,5 +30,13 @@
           .catch(error => console.log('error', error));
      
 ## Get word
-    http://localhost:1337/api/word/?word_code=hi&lang=en
+    var requestOptions = {
+       method: 'GET',
+       redirect: 'follow'
+     };
+
+     fetch("http://localhost:1337/api/word/?word_code=hi&lang=en", requestOptions)
+       .then(response => response.text())
+       .then(result => console.log(result))
+       .catch(error => console.log('error', error));
   
