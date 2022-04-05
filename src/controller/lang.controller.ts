@@ -15,11 +15,12 @@ export const createWordHandler = async (
   const body = req.body;
   const EN = 'en';
   let word_en = null;
-  const err = { message: 'The word does not exist in English please add it then you can add a word in another language' }
   if (body.lang !== EN) {
     word_en = await findOneWord({ word_code: body.word_code, lang: EN });
     if (!word_en) {
-     return res.send(err);
+      const err = { message: 'The word does not exist in English please add it then you can add a word in another language' };
+      res.status(400);
+      return res.send(err);
     }
   }
   const word = await findOneWord({ word_code: body.word_code, lang: body.lang });

@@ -1,4 +1,4 @@
-import { DocumentDefinition, FilterQuery, QueryOptions, UpdateQuery } from "mongoose";
+import { DocumentDefinition, FilterQuery, QueryOptions } from "mongoose";
 import langModel ,{ LangDocument } from "../models/lang.model";
 
 export const createWord = async (input: DocumentDefinition<Omit<LangDocument, 'createdAt' | 'updatedAt'>>) => {

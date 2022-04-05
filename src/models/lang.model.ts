@@ -13,7 +13,7 @@ const LangSchema = new mongoose.Schema({
     lang: {
         type: String, required: true
     },
-    text: { type: String, required: true, unique: true },
+    text: { type: String, required: true },
 });
 
 const langModel = mongoose.model<LangDocument>("LangService", LangSchema);
